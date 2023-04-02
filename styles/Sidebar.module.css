@@ -1,0 +1,52 @@
+.container {
+    user-select: none;
+    z-index: 1;
+    border-right: 1px solid var(--sidebar-text-color);
+    position: fixed;
+    color: var(--sidebar-text-color);
+    background-color: var(--sidebar-bg-color);
+    width: 500px;
+    top: 0;
+    height: 100vh;
+    transform: translate(-100%, 0);
+    transition: .35s;
+}
+
+.items {
+    margin-top: 10vh;
+    font-size: 30px;
+    line-height: 100px;
+    padding: 2rem;
+    text-align: center;
+    transition: line-height 1s, font-size 800ms;
+}
+
+.item {
+    border-bottom: 1px solid var(--sidebar-text-color);
+}
+
+.item:last-child {
+    border-bottom: 0;
+}
+
+.closeCheckbox {
+    transform: translate(100%, 0);
+    display: none;
+}
+
+.closeButton {
+    cursor: pointer;
+    float: right;
+    margin: 2rem;
+}
+
+.sidebarItems {
+    margin: 2rem;
+}
+
+@media (max-height: 600px) {
+    .items {
+        font-size: 20px;
+        line-height: 70px;
+    }
+}

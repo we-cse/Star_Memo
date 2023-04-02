@@ -1,0 +1,16 @@
+.footer {
+    z-index: 3;
+    background-color: var(--callout-bg-color);
+    color: var(--header-text-color);
+}
+
+.container {
+    z-index: 3;
+    margin: 0 2rem;
+    display: flex;
+    flex: 1;
+    padding: 2rem 0;
+    border-top: 1px solid var(--subheader-color);
+    justify-content: center;
+    align-items: center;
+}

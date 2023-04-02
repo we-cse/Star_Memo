@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    background-color: var(--callout-bg-color);
+    color: var(--header-text-color);
+    border-bottom: 1px solid var(--subheader-color);
+    border-radius: 0 0 20px 20px;
+    padding: 1rem 2rem;
+    animation: 2s showUp 2s forwards;
+    transform: translate(0, -100%);
+}
+
+.icon {
+    margin: 0 1rem;
+}
+
+.link {
+    align-items: center;
+    display: flex;
+}
+
+@keyframes showUp {
+    0% {
+        transform: translate(0, -100%);
+    }
+
+    100% {
+        transform: translate(0, 0%);
+    }
+}
