@@ -3,35 +3,19 @@ import styles from '../styles/Home.module.css'
 import Header from '../.modules/Header'
 import Footer from '../.modules/Footer'
 import Sidebar from '../.modules/Sidebar'
-import { useEffect } from 'react'
+import particleConfig from '../.modules/particleConfig';
+
+import Particles from 'react-tsparticles';
+import { loadFull } from "tsparticles";
+import Link from 'next/link'
 
 export default function Home() {
-  useEffect(() => {
-    const addObserve = (datas) => {
-      datas.forEach(i => {
-        let elements = document.querySelectorAll("." + i[0]);
-        elements.forEach(j => i[1].observe(j));
-      });
-    }
+  const particlesInit = async (main) => {
+    await loadFull(main);
+  };
 
-    var fadeIn = new IntersectionObserver((elements) => {
-      const element = elements.find(i => i.isIntersecting);
-      if (element?.target)
-        element.target.style.opacity = 1;
-    });
-
-    var rightToLeft = new IntersectionObserver((elements) => {
-      const element = elements.find(i => i.isIntersecting);
-      setTimeout(() => {
-        if (element?.target)
-          element.target.style.transform = "translate(0, 0)";
-      }, 1000);
-    });
-
-    addObserve([[styles.fadeIn, fadeIn], [styles.sideColor2, rightToLeft]]);
-  })
   return (
-    <div className={styles.container}>
+    <div className={styles.main}>
       <Head>
         <title>Star Memo</title>
         <meta name="description" content="Text to me." />
@@ -40,41 +24,64 @@ export default function Home() {
       {/* <Header/> */}
 
       <Sidebar />
-      <div className={styles.sideColor}></div>
-      <main className={styles.main}>
+      <Particles init={particlesInit} options={particleConfig} />
+      <main className={styles.container}>
         <div className={styles.header}>
-          <div className={styles.container}>
-            <h1 className={styles.title}>
-              Star Memo
-            </h1>
-            <h3 className={styles.description}>
-              나에게 소아올리는 메세지
-            </h3>
-            <h2 className={styles.login}>사용하기</h2>
+          <div className={styles.circle}>
+            <div className={styles.title}>StarMemo</div>
           </div>
-          <div className={styles.container}>
-            <img src="/image.png"></img>
+          <div className={styles.hidder}>
+            <div className={styles.description}>
+              <p>나의 메세지를 나만의 우주로</p>
+              <p>당신의 우주를 꾸며보세요.</p>
+            </div>
+          </div>
+          <div className={styles.circle1}></div>
+          <div className={styles.circle2}>
+            <div className={styles.btns}>
+              <Link href={"/login"}>
+                <input type={"button"} className={styles.button} value={"사용하기"} />
+              </Link>
+              <Link href={"/login"}>
+                <input type={"button"} className={styles.button} value={"다른 버튼"} />
+              </Link>
+            </div>
           </div>
         </div>
       </main>
-      <main className={styles.main}>
-        <div className={styles.header}>
-          <div className={`${styles.container} ${styles.sideImg}`}>
-            이미지 출처: <a href="https://unsplash.com/@diana_pole?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Diana Polekhina</a>
-            <img src="/Home/memo1.jpg"></img>
+      <main className={styles.items}>
+        <div className={`${styles.leftSide} ${styles.selected}`}>
+          <p className={styles.title}>나만의 우주</p>
+          <div className={styles.description}>
+            <p>반짝이는 별들 사이 당신의 이야기를</p>
+            <p>하나의 행성으로 만들어보세요.</p>
+            <p>나만의 우주를 꾸며 나를 빛내보세요.</p>
           </div>
-          <div className={`${styles.container} ${styles.sideColor2}`}>
-            <h1 className={styles.title}>
-              Star Memo란?
-            </h1>
-            <h3 className={styles.description}>
-              <p>나에게 쓰는 편지를 모티브로 제작되어</p>
-              <p>나라는 행성의 주위에 쏘아올리는 인공위성</p>
-              <p>이라는 컨셉을 가지고 제작하게 되었습니다.</p>
-              <br />
-              <p>나의 소중한 순간들을 기록하며</p>
-              <p>나의 삶에 대한 가치를 올려보아요.</p>
-            </h3>
+        </div>
+        <div className={styles.rightSide}>
+          <div className={styles.circle}></div>
+          <div className={styles.circle2}>돌거 필요</div>
+          <div className={styles.circle3}></div>
+        </div>
+      </main>
+      <main className={styles.items}>
+        <div className={`${styles.leftSide} ${styles.flex}`}>
+          <div className={styles.scrollPaper}>
+            <div className={styles.description}>
+              <p>앞으로의 길을 내다볼 때 필요한 건</p>
+              <p>걱정이 아닌 판단이다.</p>
+              <p>-</p>
+              <p>김수현/나는 나로 살기로 했다</p>
+            </div>
+          </div>
+        </div>
+        <div className={`${styles.rightSide} ${styles.selected}`}>
+          <p className={styles.title}>서로의 마음을 따뜻하게</p>
+          <div className={styles.description}>
+            <p>서로에게 글귀를 써내려가며</p>
+            <p>따뜻한 한마디를 건내주세요.</p>
+            <p>당신의 글귀로</p>
+            <p>따뜻한 마음을 전해보아요.</p>
           </div>
         </div>
       </main>

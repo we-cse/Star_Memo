@@ -1,5 +1,6 @@
 html,
 body {
+  overflow-x: hidden;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -21,30 +22,36 @@ a {
   */
 
 :root {
-  --page-bg-color: hsl(0, 0%, 100%);
-  --header-text-color: hsl(0, 0%, 20%);
+  --page-bg-color: rgb(30, 30, 30);
+  --header-bg-color: hsla(0, 2%, 16%, 0.507);
+  --header-text-color: hsl(0, 0%, 80%);
   --sidebar-bg-color: hsl(0, 0%, 16%);
-  --sidebar-text-color: hsl(0, 0%, 100%);
-  --paragraph-color: hsl(0, 0%, 20%);
-  --callout-bg-color: hsl(0, 0%, 90%);
+  --sidebar-text-color: hsl(0, 0%, 80%);
+  --paragraph-color: hsl(0, 0%, 80%);
+  --callout-bg-color: hsl(0, 0%, 10%);
+  --button-bg-color: linear-gradient(70deg, hsl(265, 31%, 21%) 5%, hsl(283, 53%, 68%) 10%, hsl(265, 31%, 21%) 15%);
+  --timer: linear-gradient(90deg, hsl(288, 25%, 20%) 30%, hsl(280, 2%, 38%) 50%, hsl(288, 25%, 20%) 80%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --page-bg-color: rgb(30, 30, 30);
+    --header-bg-color: hsla(0, 2%, 16%, 0.507);
     --header-text-color: hsl(0, 0%, 80%);
     --sidebar-bg-color: hsl(0, 0%, 16%);
     --sidebar-text-color: hsl(0, 0%, 80%);
     --paragraph-color: hsl(0, 0%, 80%);
     --callout-bg-color: hsl(0, 0%, 10%);
+    --button-bg-color: linear-gradient(70deg, hsl(265, 31%, 21%) 5%, hsl(283, 53%, 68%) 10%, hsl(265, 31%, 21%) 15%);
+    --timer: linear-gradient(90deg, hsl(288, 25%, 20%) 30%, hsl(280, 2%, 38%) 50%, hsl(288, 25%, 20%) 80%);
   }
 
   html {
     color-scheme: dark;
   }
+}
 
-  body {
-    color: var(--paragraph-color);
-    background: var(--page-bg-color);
-  }
+body {
+  color: var(--paragraph-color);
+  background: var(--page-bg-color);
 }

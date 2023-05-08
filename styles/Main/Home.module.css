@@ -1,0 +1,15 @@
+.main {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+}
+
+.profile {
+    width: 100px;
+    /* transform: translate(50%, 50%); */
+}
